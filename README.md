@@ -1,13 +1,14 @@
 # ransomeware-poc
 This repo is to demonstrate the concept and a POC of how ransomeware works.
 
-## How it works
+## How to use
 
 1. Generate an RSA key first. The code wil generate a Public and Private key. The public key will be placed under the victim folder, where as the private key is being held in the c2-server folder.
 ```bash
 python /c2-server/gen-rsa.py
 ```
-3. Run the File Encryptor. AES-256 Key will be dynamically generated on the victim's end.
+3. Run the File Encryptor at the victim's folder. AES-256 Key will be dynamically generated on the victim's end.
+(see below)
 
 ### Notes
 The code uses AES 256 to encrypt files. Once the files are encrypted, the IV and key are then encrypted with the RSA Public key. The result of that, will be appended onto the newly locked file.
